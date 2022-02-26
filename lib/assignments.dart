@@ -45,18 +45,23 @@ class _AssignmentsState extends State<Assignments> {
                       child: ListView(
                         children: snapshot.data!.docs.map((DocumentSnapshot document) {
                           Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
-                          return ListTile(
-                            title: Text(data['assignmentTitle']),
-                            subtitle: Text('Due on: ' + data['assignmentDueDate']),
-                            onTap: (){
-                              showBottomSheet(context: context, builder: (context) {
-                                return Wrap(
-                                  children: [
-                                    ListTile(title: Text(data['assignmentTitle'] + ': ' + data['assignmentDescription'])),
-                                  ],
-                                ); 
-                              });
-                            }
+                          return Column(
+                            children: [
+                              ListTile(
+                                title: Text(data['assignmentTitle']),
+                                subtitle: Text('Due on: ' + data['assignmentDueDate']),
+                                onTap: (){
+                                  showBottomSheet(context: context, builder: (context) {
+                                    return Wrap(
+                                      children: [
+                                        ListTile(title: Text(data['assignmentTitle'] + ': ' + data['assignmentDescription'])),
+                                      ],
+                                    ); 
+                                  });
+                                }
+                              ),
+                              Divider(), 
+                            ],
                           );
                         },
                         ).toList(),

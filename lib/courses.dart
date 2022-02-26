@@ -27,35 +27,43 @@ class _CoursesState extends State<Courses> {
                 height: 600,
                 child: Card(
                   color: Colors.pink[200],
-                  child: ListView(
-                    children: snapshot.data!.docs.map((DocumentSnapshot document) {
-                      Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
-                      return SizedBox(
-                        height: 80.0,
-                        child: ListTile(
-                          title: Text(data['courseProvider']),
-                          subtitle: Text(data['courseName']),
-                          onTap: (){
-                            showBottomSheet(context: context, builder: (context) {
-                              return Wrap(
-                                children: [
-                                  ListTile(title: Text(data['courseProvider'] + ': ' + data['courseDescription']), subtitle: Text(data['courseLink']), onLongPress: () async {
-                                    if (await canLaunch(data['courseLink'])) {
-                                      await launch(data['courseLink'], forceWebView: true); 
-                                    } else {
-                                      throw 'Could not launch url'; 
+                  child:
+                      ListView(
+                          children: snapshot.data!.docs.map((DocumentSnapshot document) {
+                            Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
+                            return Column(
+                              children: [
+                                SizedBox(
+                                  height: 80.0,
+                                  child: ListTile(
+                                    title: Text(data['courseProvider']),
+                                    subtitle: Text(data['courseName']),
+                                    onTap: (){
+                                      showBottomSheet(context: context, builder: (context) {
+                                        return Wrap(
+                                          children: [
+                                            ListTile(title: Text(data['courseProvider'] + ': ' + data['courseDescription']), subtitle: Text(data['courseLink']), onLongPress: () async {
+                                              if (await canLaunch(data['courseLink'])) {
+                                                await launch(data['courseLink'], forceWebView: true); 
+                                              } else {
+                                                throw 'Could not launch url'; 
+                                              }
+                                            },),
+                                            
+                                          ],
+                                        ); 
+                                      });
                                     }
-                                  },),
-                                  
-                                ],
-                              ); 
-                            });
-                          }
+                                  ),
+                                ),
+                                Divider(), 
+                              ],
+                            );
+                          }).toList(),
                         ),
-                      );
-                    }).toList(),
+                        
+                    
                   ),
-                ),
               ); 
             }
         },  

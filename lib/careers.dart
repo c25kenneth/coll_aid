@@ -31,24 +31,29 @@ class _CareersState extends State<Careers> {
                   child: ListView(
                     children: snapshot.data!.docs.map((DocumentSnapshot document) {
                       Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
-                      return ListTile(
-                        title: Text(data['companyName']),
-                        subtitle: Text(data['positionName']),
-                        onTap: (){
-                          showBottomSheet(context: context, builder: (context) {
-                            return Wrap(
-                              children: [
-                                ListTile(title: Text(data['companyName'] + ': ' + data['positionDescription']), subtitle: Text(data['positionLink']), onLongPress: () async {
-                                  if (await canLaunch(data['positionLink'])) {
-                                    await launch(data['positionLink'], forceWebView: true); 
-                                  } else {
-                                    throw 'Could not launch url'; 
-                                  }
-                                },),
-                              ],
-                            ); 
-                          });
-                        }
+                      return Column(
+                        children: [
+                          ListTile(
+                            title: Text(data['companyName']),
+                            subtitle: Text(data['positionName']),
+                            onTap: (){
+                              showBottomSheet(context: context, builder: (context) {
+                                return Wrap(
+                                  children: [
+                                    ListTile(title: Text(data['companyName'] + ': ' + data['positionDescription']), subtitle: Text(data['positionLink']), onLongPress: () async {
+                                      if (await canLaunch(data['positionLink'])) {
+                                        await launch(data['positionLink'], forceWebView: true); 
+                                      } else {
+                                        throw 'Could not launch url'; 
+                                      }
+                                    },),
+                                  ],
+                                ); 
+                              });
+                            }
+                          ),
+                          Divider(),
+                        ],
                       );
                     }).toList(),
                   ),

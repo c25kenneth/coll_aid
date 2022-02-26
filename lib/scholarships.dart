@@ -33,27 +33,33 @@ class _ScholarshipsState extends State<Scholarships> {
                     
                     children: snapshot.data!.docs.map((DocumentSnapshot document) {
                       Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
-                      return ListTile(
-                          title: Text(data['scholarshipHost']),
-                          subtitle: Text(data['scholarshipName']),
-                          onTap: (){
-                            showBottomSheet(context: context, builder: (context) {
-                              return Wrap(
-                                children: [
-                                  ListTile(title: Text(data['scholarshipHost'] + ': ' + data['scholarshipDescription']), subtitle: Text(data['link']),onLongPress: () async {
-                                    if (await canLaunch(data['link'])) {
-                                      await launch(data['link'], forceWebView: true); 
-                                    } else {
-                                      throw 'Could not launch url'; 
-                                    }
-                                  },
-                                  ),
-                                ],
-                              ); 
-                            });
-                          }
-                      
-                    );
+                      return Column(
+                        children: [
+                          ListTile(
+                            
+                              title: Text(data['scholarshipHost']),
+                              subtitle: Text(data['scholarshipName']),
+                              onTap: (){
+                                showBottomSheet(context: context, builder: (context) {
+                                  return Wrap(
+                                    children: [
+                                      ListTile(title: Text(data['scholarshipHost'] + ': ' + data['scholarshipDescription']), subtitle: Text(data['link']),onLongPress: () async {
+                                        if (await canLaunch(data['link'])) {
+                                          await launch(data['link'], forceWebView: true); 
+                                        } else {
+                                          throw 'Could not launch url'; 
+                                        }
+                                      },
+                                      ),
+                                    ],
+                                  ); 
+                                });
+                              }
+                          
+                    ),
+                    Divider(),
+                        ],
+                      );
                     }).toList(),
                   ),
                 ),
