@@ -26,6 +26,7 @@ class _LoanCalculatorState extends State<LoanCalculator> {
         child: Column(
           children: [
             SizedBox(height: 35.0,),
+            Container(child: Image.network('https://cdn.pixabay.com/photo/2018/07/03/12/22/mentor-3513738_960_720.jpg'), height: 275, width: 275.0,),       
             Container(
                 width: 350,
                 child: TextField(
