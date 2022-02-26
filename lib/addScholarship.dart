@@ -1,3 +1,4 @@
+import 'package:coll_aid/fireflutter.dart';
 import 'package:flutter/material.dart';
 
 class AddScholarship extends StatefulWidget {
@@ -104,7 +105,7 @@ class _AddScholarshipState extends State<AddScholarship> {
                   style: TextStyle(fontSize: 30),
                 ),
                 onPressed: () {
-                  
+                  createScholarship(scholarshipName, scholarshipHost, scholarshipDescription, link); 
                   Navigator.pop(context); 
                 },
               ),

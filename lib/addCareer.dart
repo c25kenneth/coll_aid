@@ -1,3 +1,4 @@
+import 'package:coll_aid/fireflutter.dart';
 import 'package:flutter/material.dart';
 
 class AddCareer extends StatefulWidget {
@@ -104,7 +105,7 @@ class _AddCareerState extends State<AddCareer> {
                   style: TextStyle(fontSize: 30),
                 ),
                 onPressed: () {
-                  
+                  createCareer(positionName, companyName, positionDescription, link); 
                   Navigator.pop(context); 
                 },
               ),

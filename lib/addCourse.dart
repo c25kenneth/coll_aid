@@ -1,3 +1,4 @@
+import 'package:coll_aid/fireflutter.dart';
 import 'package:flutter/material.dart';
 
 class AddCourse extends StatefulWidget {
@@ -103,7 +104,7 @@ class _AddCourseState extends State<AddCourse> {
                   style: TextStyle(fontSize: 30),
                 ),
                 onPressed: () {
-                  
+                  createCourse(courseName, courseDescription, courseProvider, link); 
                   Navigator.pop(context); 
                 },
               ),
