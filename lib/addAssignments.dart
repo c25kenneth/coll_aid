@@ -1,3 +1,4 @@
+import 'package:coll_aid/fireflutter.dart';
 import 'package:flutter/material.dart';
 
 class AddAssignment extends StatefulWidget {
@@ -87,7 +88,7 @@ class _AddAssignmentState extends State<AddAssignment> {
                   style: TextStyle(fontSize: 30),
                 ),
                 onPressed: () {
-                  
+                  createAssignment(assignmentTitle, assignmentDueDate, assignmentDescription);
                   Navigator.pop(context); 
                 },
               ),
