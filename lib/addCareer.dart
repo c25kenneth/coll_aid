@@ -22,8 +22,8 @@ class _AddCareerState extends State<AddCareer> {
         child: Center(
           child: Column(
             children: [
-              // Image.asset('assets/images/stillfreshlogo.png', width: 300, height: 300),      
-              SizedBox(height: 15.0,),
+              Container(child: Image.network('https://cdn.pixabay.com/photo/2017/10/17/10/05/job-2860035_960_720.jpg'), height: 275, width: 275.0,),           
+              
               Container(
                 width: 350,
                 child: TextField(

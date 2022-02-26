@@ -21,8 +21,8 @@ class _AddCourseState extends State<AddCourse> {
         child: Center(
           child: Column(
             children: [
-              // Image.asset('assets/images/stillfreshlogo.png', width: 300, height: 300),      
-              SizedBox(height: 15.0,),
+              Container(child: Image.network('https://cdn.pixabay.com/photo/2020/06/02/05/45/online-course-5249512_960_720.jpg'), height: 275, width: 275.0,),       
+              
               Container(
                 width: 350,
                 child: TextField(
