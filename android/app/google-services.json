@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "494123520063",
+    "project_id": "collaid",
+    "storage_bucket": "collaid.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:494123520063:android:dfcecb6502050a51e9a88a",
+        "android_client_info": {
+          "package_name": "com.kencdev.coll_aid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "494123520063-cl575th7ltd2geo7228sqmmcmu571tpl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4H_RzA6sohEP4fUzvkRNmQKugMzql8Ng"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "494123520063-cl575th7ltd2geo7228sqmmcmu571tpl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
