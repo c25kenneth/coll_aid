@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Courses extends StatefulWidget {
   const Courses({ Key? key }) : super(key: key);
@@ -35,7 +36,13 @@ class _CoursesState extends State<Courses> {
                           showBottomSheet(context: context, builder: (context) {
                             return Wrap(
                               children: [
-                                ListTile(title: Text(data['courseProvider'] + ': ' + data['courseDescription']), subtitle: Text(data['courseLink']),),
+                                ListTile(title: Text(data['courseProvider'] + ': ' + data['courseDescription']), subtitle: Text(data['courseLink']), onLongPress: () async {
+                                  if (await canLaunch(data['courseLink'])) {
+                                    await launch(data['courseLink'], forceWebView: true); 
+                                  } else {
+                                    throw 'Could not launch url'; 
+                                  }
+                                },),
                               ],
                             ); 
                           });

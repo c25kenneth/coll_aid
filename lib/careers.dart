@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Careers extends StatefulWidget {
   Careers({ Key? key }) : super(key: key);
@@ -36,7 +37,13 @@ class _CareersState extends State<Careers> {
                           showBottomSheet(context: context, builder: (context) {
                             return Wrap(
                               children: [
-                                ListTile(title: Text(data['companyName'] + ': ' + data['positionDescription']), subtitle: Text(data['positionLink']),),
+                                ListTile(title: Text(data['companyName'] + ': ' + data['positionDescription']), subtitle: Text(data['positionLink']), onLongPress: () async {
+                                  if (await canLaunch(data['positionLink'])) {
+                                    await launch(data['positionLink'], forceWebView: true); 
+                                  } else {
+                                    throw 'Could not launch url'; 
+                                  }
+                                },),
                               ],
                             ); 
                           });

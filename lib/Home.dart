@@ -39,6 +39,8 @@ class _HomeState extends State<Home> {
               Text("It's super easy to get started!", style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),),
               SizedBox(height: 40.0,),
               Text('Click the three lines on the appbar to start your college journey!'),
+              SizedBox(height: 15.0,),
+              Image.network('https://cdn.pixabay.com/photo/2013/04/19/01/15/university-105709_960_720.jpg', height: 300.0, width: 300.0,),
             ],
           ),
         ),
