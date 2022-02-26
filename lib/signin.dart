@@ -1,3 +1,5 @@
+import 'package:coll_aid/Home.dart';
+import 'package:coll_aid/fireflutter.dart';
 import 'package:coll_aid/main.dart';
 import 'package:flutter/material.dart';
 
@@ -74,7 +76,8 @@ class _SignInState extends State<SignIn> {
                 style: TextStyle(fontSize: 30),
               ),
               onPressed: () {
-
+                canSignIn(email, password); 
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Home())); 
               },
             ),
           ],

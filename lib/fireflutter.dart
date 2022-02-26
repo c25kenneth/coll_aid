@@ -7,7 +7,7 @@ final uid = user?.uid;
 
 Future<bool> canRegister(String userEmail, userPassword) async {
   try {
-    FirebaseAuth.instance.createUserWithEmailAndPassword(email: userEmail, password: userPassword);
+    await FirebaseAuth.instance.createUserWithEmailAndPassword(email: userEmail, password: userPassword);
     return true; 
   } catch(e) {
     return false; 

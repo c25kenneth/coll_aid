@@ -1,3 +1,5 @@
+import 'package:coll_aid/Home.dart';
+import 'package:coll_aid/fireflutter.dart';
 import 'package:coll_aid/signin.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -98,8 +100,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: TextStyle(fontSize: 30),
                 ),
                 onPressed: () {
-                  
-                  
+                  canRegister(email, password);                 
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Home()));        
                 },
               ),
             ],
