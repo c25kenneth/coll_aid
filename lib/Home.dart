@@ -1,4 +1,8 @@
+import 'package:coll_aid/fireflutter.dart';
+import 'package:coll_aid/main.dart';
 import 'package:flutter/material.dart';
+
+import 'navigationDrawerWidget.dart';
 
 class Home extends StatefulWidget {
   const Home({ Key? key }) : super(key: key);
@@ -11,7 +15,33 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Home Screen!'),),
+      drawer: NavigationDrawerWidget(),
+      appBar: AppBar(title: Text('Home'), actions: [
+        MaterialButton(onPressed: (){
+            signOut(); 
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MyHomePage())); 
+          }, child: Text('Sign Out!')), 
+        ],),
+        body: Center(
+          child: Column(
+            children: [
+              SizedBox(height: 35.0),
+              Text('Hello and welcome to College Aid!👋', style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),),
+              Text('We are here to make your college life easy!', style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),),
+              SizedBox(height: 40.0,),
+              Text('Here at College Aid, you can find scholarships 💸, '), 
+              Text('internships and careers 🎓, '),
+              Text('courses 🏫, '),
+              Text('And manage your assignments to make sure they are done! 👊'),
+              SizedBox(height: 20.0,),
+              Text('Educators can add these opportunities within the app! '),
+              SizedBox(height: 40.0), 
+              Text("It's super easy to get started!", style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),),
+              SizedBox(height: 40.0,),
+              Text('Click the three lines on the appbar to start your college journey!'),
+            ],
+          ),
+        ),
     );
   }
 }
