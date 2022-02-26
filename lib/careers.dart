@@ -25,7 +25,7 @@ class _CareersState extends State<Careers> {
               return Text('Loading'); 
             } else {
               return SizedBox(
-                height: 90,
+                height: 600,
                 child: Card(
                   child: ListView(
                     children: snapshot.data!.docs.map((DocumentSnapshot document) {

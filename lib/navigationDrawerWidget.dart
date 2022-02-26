@@ -3,6 +3,7 @@ import 'package:coll_aid/addScholarship.dart';
 import 'package:coll_aid/assignments.dart';
 import 'package:coll_aid/careers.dart';
 import 'package:coll_aid/courses.dart';
+import 'package:coll_aid/loanCalculator.dart';
 import 'package:coll_aid/scholarships.dart';
 import 'package:flutter/material.dart';
 
@@ -29,11 +30,12 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
             buildMenuItem(text: 'Assignments', icon: Icons.assignment, onClicked: () => selectedItem(context, 1),),
             buildMenuItem(text: 'Internships and Jobs', icon: Icons.work, onClicked: () => selectedItem(context, 2),),
             buildMenuItem(text: 'Scholarship Opportunities', icon: Icons.money, onClicked: () => selectedItem(context, 3),),
+            buildMenuItem(text: 'Student Loan Interest Calculator', icon: Icons.attach_money, onClicked: () => selectedItem(context, 7)),
             const SizedBox(height: 150,),
             Text('      For Educators: ', style: TextStyle(fontWeight: FontWeight.bold),), 
             buildMenuItem(text: 'Add Course', icon: Icons.add_outlined, onClicked: () => selectedItem(context, 4),),
             buildMenuItem(text: 'Add Internships or Jobs', icon: Icons.add_outlined, onClicked: () => selectedItem(context, 5),),
-            buildMenuItem(text: 'Add Scholarship Opportunities', icon: Icons.add_outlined, onClicked: () => selectedItem(context, 6),)
+            buildMenuItem(text: 'Add Scholarship Opportunities', icon: Icons.add_outlined, onClicked: () => selectedItem(context, 6),),
           ],
         ),
       ),
@@ -77,5 +79,7 @@ void selectedItem(BuildContext context, int index) {
     case 6: 
       Navigator.push(context, MaterialPageRoute(builder: (context) => AddScholarship())); 
       break; 
+    case 7: 
+      Navigator.push(context, MaterialPageRoute(builder: (context) => LoanCalculator())); 
   }
 }

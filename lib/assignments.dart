@@ -39,7 +39,7 @@ class _AssignmentsState extends State<Assignments> {
                   return Text('Loading please wait'); 
                 } else {
                   return SizedBox(
-                    height: 90,
+                    height: 600,
                     child: Card(
                       child: ListView(
                         children: snapshot.data!.docs.map((DocumentSnapshot document) {
@@ -57,7 +57,8 @@ class _AssignmentsState extends State<Assignments> {
                               });
                             }
                           );
-                        }).toList(),
+                        },
+                        ).toList(),
                       ),
                     ),
                   ); 
@@ -67,6 +68,13 @@ class _AssignmentsState extends State<Assignments> {
           }
         },
         ),
+        // persistentFooterButtons: [
+        //   Center(
+        //     child: FloatingActionButton(onPressed: (){
+        //       Nav
+        //     }, child: Icon(Icons.phone), tooltip: 'Need help? Call your teacher!',),
+        //   )
+        // ],
       ); 
   }
 }

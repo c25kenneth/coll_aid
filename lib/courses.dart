@@ -24,29 +24,33 @@ class _CoursesState extends State<Courses> {
               return Text('Loading'); 
             } else {
               return SizedBox(
-                height: 90,
+                height: 600,
                 child: Card(
                   child: ListView(
                     children: snapshot.data!.docs.map((DocumentSnapshot document) {
                       Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
-                      return ListTile(
-                        title: Text(data['courseProvider']),
-                        subtitle: Text(data['courseName']),
-                        onTap: (){
-                          showBottomSheet(context: context, builder: (context) {
-                            return Wrap(
-                              children: [
-                                ListTile(title: Text(data['courseProvider'] + ': ' + data['courseDescription']), subtitle: Text(data['courseLink']), onLongPress: () async {
-                                  if (await canLaunch(data['courseLink'])) {
-                                    await launch(data['courseLink'], forceWebView: true); 
-                                  } else {
-                                    throw 'Could not launch url'; 
-                                  }
-                                },),
-                              ],
-                            ); 
-                          });
-                        }
+                      return SizedBox(
+                        height: 80.0,
+                        child: ListTile(
+                          title: Text(data['courseProvider']),
+                          subtitle: Text(data['courseName']),
+                          onTap: (){
+                            showBottomSheet(context: context, builder: (context) {
+                              return Wrap(
+                                children: [
+                                  ListTile(title: Text(data['courseProvider'] + ': ' + data['courseDescription']), subtitle: Text(data['courseLink']), onLongPress: () async {
+                                    if (await canLaunch(data['courseLink'])) {
+                                      await launch(data['courseLink'], forceWebView: true); 
+                                    } else {
+                                      throw 'Could not launch url'; 
+                                    }
+                                  },),
+                                  
+                                ],
+                              ); 
+                            });
+                          }
+                        ),
                       );
                     }).toList(),
                   ),
