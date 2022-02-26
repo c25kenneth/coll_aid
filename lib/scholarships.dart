@@ -28,6 +28,7 @@ class _ScholarshipsState extends State<Scholarships> {
               return SizedBox(
                 height: 600,
                 child: Card(
+                  color: Colors.pink[200],
                   child: ListView(
                     
                     children: snapshot.data!.docs.map((DocumentSnapshot document) {

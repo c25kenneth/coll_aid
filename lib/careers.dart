@@ -27,6 +27,7 @@ class _CareersState extends State<Careers> {
               return SizedBox(
                 height: 600,
                 child: Card(
+                  color: Colors.pink[200],
                   child: ListView(
                     children: snapshot.data!.docs.map((DocumentSnapshot document) {
                       Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
