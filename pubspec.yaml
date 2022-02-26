@@ -39,7 +39,7 @@ dependencies:
   firebase_core: ^1.10.5
   firebase_storage: ^10.2.3
   image_picker: ^0.8.4+4
-
+  url_launcher: ^6.0.20
 dev_dependencies:
   flutter_test:
     sdk: flutter
