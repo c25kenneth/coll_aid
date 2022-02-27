@@ -19,6 +19,7 @@ class _LoanCalculatorState extends State<LoanCalculator> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text('Calculate your Student Loan Interest! '),
       ),

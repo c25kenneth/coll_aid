@@ -36,6 +36,7 @@ class _CoursesState extends State<Courses> {
                                 SizedBox(
                                   height: 80.0,
                                   child: ListTile(
+                                                               
                                     title: Text(data['courseProvider']),
                                     subtitle: Text(data['courseName']),
                                     onTap: (){
